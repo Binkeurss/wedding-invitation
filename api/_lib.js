@@ -37,14 +37,28 @@ function parseImageEntry(value) {
     }
   }
 
-  const parts = raw.split('|').map((s) => s.trim()).filter(Boolean);
-  const id = parts[0];
-  if (!id) return null;
+  const pipeParts = raw.split('|').map((s) => s.trim()).filter(Boolean);
+  if (pipeParts.length >= 2) {
+    return {
+      id: pipeParts[0],
+      ext: pipeParts[1] || 'jpg',
+      t: pipeParts[2] || ''
+    };
+  }
+
+  const dotMatch = raw.match(/^(.*?)(?:\.([a-z0-9]+))$/i);
+  if (dotMatch) {
+    return {
+      id: dotMatch[1],
+      ext: dotMatch[2] || 'jpg',
+      t: ''
+    };
+  }
 
   return {
-    id,
-    ext: parts[1] || 'jpg',
-    t: parts[2] || ''
+    id: raw,
+    ext: 'jpg',
+    t: ''
   };
 }
 
@@ -53,6 +67,13 @@ function getMap() {
     const legacy = JSON.parse(process.env.IMAGE_MAP || '{}');
     if (legacy && typeof legacy === 'object' && !Array.isArray(legacy) && Object.keys(legacy).length) {
       return legacy;
+    }
+  } catch { /* fallback sang file trong repo */ }
+
+  try {
+    const repoMap = require('../images-map.js');
+    if (repoMap && typeof repoMap === 'object' && Object.keys(repoMap).length) {
+      return repoMap;
     }
   } catch { /* fallback sang biến riêng lẻ */ }
 

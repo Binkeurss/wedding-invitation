@@ -10,7 +10,9 @@ module.exports = (req, res) => {
   if (!map || !process.env.SIGNING_SECRET) return res.status(500).json({ error: 'config' });
 
   const k = String((req.query && req.query.k) || '');
-  if (!list(process.env.INVITE_KEYS).some((x) => safeEqual(x, k))) return res.status(401).json({ error: 'key' });
+  if (k && process.env.INVITE_KEYS && !list(process.env.INVITE_KEYS).some((x) => safeEqual(x, k))) {
+    return res.status(401).json({ error: 'key' });
+  }
 
   const exp = Math.floor(Date.now() / 1000) + getTtl();
   const host = req.headers['x-forwarded-host'] || req.headers.host;
