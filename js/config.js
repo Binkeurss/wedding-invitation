@@ -1,11 +1,28 @@
-/* CẤU HÌNH CÔNG KHAI. Không chứa URL ảnh, khoá hay bí mật nào.
-   Ảnh chỉ được gọi theo TÊN (hero, story1..3, album1..8, thanks, photo, ic-rings, ic-car, ic-dinner, ic-couple);
-   URL thật nằm trong biến môi trường của Vercel (xem api/ và .env.example). */
 const TZ = 'Asia/Ho_Chi_Minh';
-const WED = {
-  gateway: location.origin + '/api',   // hàm Vercel cùng domain
+const CONFIG = {
+  groom: 'Vũ Mạnh',
+  bride: 'Ngọc Ánh',
+  // buổi lễ: dòng đầu tiên là mốc đếm ngược & lịch
   ceremonies: [
-{ label: 'LỄ VU QUY', iso: '2026-12-13T10:30:00+07:00', venue: 'NHƯ Ý PALACE', addr: '10.8602885, 106.958646', lunar: '(Tức ngày 5 tháng 11 năm Bính Ngọ)' },
-{ label: 'TIỆC MỪNG CƯỚI', iso: '2026-12-13T16:30:00+07:00', venue: 'NHƯ Ý PALACE', addr: '10.8602885, 106.958646', lunar: '(Tức ngày 5 tháng 11 năm Bính Ngọ)' }
+    { label: 'Lễ Vu Quy',      iso: '2026-12-13T10:30:00+07:00' },
+    { label: 'Tiệc mừng cưới', iso: '2026-12-13T16:30:00+07:00' }
+  ],
+  // TODO: thay bằng số điện thoại thật
+  contacts: [
+    { group: 'Nhà trai', people: [
+      { role: 'Chú rể', name: 'Vũ Mạnh',          phone: '0900 000 001' },
+      { role: 'Cha',    name: 'Lâm Văn Đượm',     phone: '0900 000 002' },
+      { role: 'Mẹ',     name: 'Huỳnh Thị Phượng', phone: '0900 000 003' }
+    ]},
+    { group: 'Nhà gái', people: [
+      { role: 'Cô dâu', name: 'Ngọc Ánh',     phone: '0900 000 004' },
+      { role: 'Cha',    name: 'Vũ Bảo Duật',  phone: '0900 000 005' },
+      { role: 'Mẹ',     name: 'Phạm Thị Tin', phone: '0900 000 006' }
+    ]}
+  ],
+  // TODO: thay bằng tài khoản thật
+  bank: [
+    { side: 'Nhà trai', holder: 'TEN CHU TAI KHOAN', bank: 'Vietcombank', number: '0000000001' },
+    { side: 'Nhà gái',  holder: 'TEN CHU TAI KHOAN', bank: 'Vietcombank', number: '0000000002' }
   ]
 };

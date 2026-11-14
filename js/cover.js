@@ -24,6 +24,9 @@
     window.setTimeout(() => { window.__heroGo = true; window.dispatchEvent(new Event('scroll')); }, 250);
     document.body.classList.remove('cover-locked');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window.startWeddingMusic === 'function') {
+      window.startWeddingMusic();
+    }
     window.setTimeout(() => cover.setAttribute('aria-hidden', 'true'), 850);
   });
 })();
