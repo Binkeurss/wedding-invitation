@@ -95,10 +95,15 @@ function getMap() {
 function getTtl() { return Math.min(Math.max(parseInt(process.env.TTL_SECONDS || '3600', 10) || 3600, 60), 86400); }
 
 // Chữ ký URL ảnh Cloudinary "authenticated": 8 ký tự đầu của base64url(SHA-1("<biến đổi>/<public_id>" + API_SECRET))
+function publicCloudinaryUrl({ id, ext = 'jpg', t = '' }) {
+  const urlId = (t ? t + '/' : '') + id;
+  return `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD}/image/upload/${urlId}.${ext}`;
+}
+
 function cloudinaryUrl({ id, ext = 'jpg', t = '' }) {
   const toSign = (t ? t + '/' : '') + id;
   const sig = b64url(crypto.createHash('sha1').update(toSign + process.env.CLOUDINARY_API_SECRET).digest()).slice(0, 8);
   return `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD}/image/authenticated/s--${sig}--/${toSign}.${ext}`;
 }
 
-module.exports = { hmac, safeEqual, list, originOk, getMap, getTtl, cloudinaryUrl };
+module.exports = { hmac, safeEqual, list, originOk, getMap, getTtl, publicCloudinaryUrl, cloudinaryUrl };

@@ -3,10 +3,15 @@
 async function loadSecureImages() {
   const gw = (WED.gateway || '').replace(/\/+$/, '');
   const key = new URLSearchParams(location.search).get('k');
-  if (!/^(https:\/\/|http:\/\/localhost)/i.test(gw) || !key) return;
-  const okUrl = u => typeof u === 'string' && u.startsWith(gw + '/img/');
+  if (!/^(https:\/\/|http:\/\/localhost)/i.test(gw)) return;
+  const okUrl = u => typeof u === 'string' && (
+    u.startsWith(gw + '/img/') ||
+    /^https?:\/\//i.test(u) ||
+    /cloudinary\.com\//i.test(u)
+  );
   try {
-    const res = await fetch(`${gw}/manifest?k=${encodeURIComponent(key)}`, { cache: 'no-store' });
+    const url = key ? `${gw}/manifest?k=${encodeURIComponent(key)}` : `${gw}/manifest`;
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) return;
     const { images = {} } = await res.json();
     document.querySelectorAll('[data-cloudinary]').forEach(el => {
