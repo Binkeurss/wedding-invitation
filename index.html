@@ -9,7 +9,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Abril+Fatface&family=Playball&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Abril+Fatface&family=Allura&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -39,8 +39,7 @@
   <div class="hero-bg ph" data-cloudinary="hero" role="img" aria-label="Ảnh cưới Vũ Mạnh và Ngọc Ánh"></div>
   <section class="hero-text">
     <h1 class="ob" aria-label="Our Love Begins, from now on">
-      <span class="our" aria-hidden="true">Our</span>
-      <span class="love" aria-hidden="true">Love</span>
+      <span class="r1" aria-hidden="true"><span class="our">Our</span><span class="love">Love</span></span>
       <span class="begins" aria-hidden="true">Begins</span>
       <span class="fnw" aria-hidden="true"><i>FROM</i><i>NOW</i><i>ON</i></span>
     </h1>
@@ -84,10 +83,10 @@
     <p class="announce" data-reveal>TRÂN TRỌNG BÁO TIN<br>LỄ THÀNH HÔN CỦA CON CHÚNG TÔI</p>
 
     <div class="couple-names">
-      <p class="cn" data-reveal>Vũ Mạnh</p>
+      <p class="cn" data-reveal>Lâm Vũ Mạnh</p>
       <p class="role" data-reveal style="--d:60ms">CHÚ RỂ</p>
       <p class="amp" data-reveal style="--d:100ms">&amp;</p>
-      <p class="cn" data-reveal style="--d:140ms">Ngọc Ánh</p>
+      <p class="cn" data-reveal style="--d:140ms">Vũ Ngọc Ánh</p>
       <p class="role" data-reveal style="--d:200ms">CÔ DÂU</p>
     </div>
   </section>
@@ -101,7 +100,7 @@
       <div class="ph pf-img" data-cloudinary="story2" role="img" aria-label="Chú rể"></div>
       <div class="pf-text">
         <small>Chú rể</small>
-        <h3>Vũ Mạnh</h3>
+        <h3>Lâm Vũ Mạnh</h3>
         <hr>
         <p>Người con trai trầm lặng nhưng luôn chu đáo với những người mình yêu thương. Với anh, hạnh phúc giản dị là được về nhà bên người mình thương.</p>
       </div>
@@ -110,7 +109,7 @@
     <article class="person right" data-reveal>
       <div class="pf-text">
         <small>Cô dâu</small>
-        <h3>Ngọc Ánh</h3>
+        <h3>Vũ Ngọc Ánh</h3>
         <hr>
         <p>Cô gái yêu thích những điều giản dị và đẹp. Với cô, hạnh phúc là được cùng người mình thương viết tiếp những ngày bình thường thật đáng nhớ.</p>
       </div>
@@ -139,27 +138,13 @@
   <section class="sec location">
     <p class="eyebrow" data-reveal>LOCATION</p>
     <h2 class="title" data-reveal style="--d:80ms">Địa điểm tổ chức</h2>
-    <p class="venue caps" data-reveal style="--d:120ms">Như Ý Palace</p>
-    <p class="addr" data-reveal style="--d:160ms">10.8602885, 106.958646</p>
+    <p class="venue caps" data-reveal style="--d:120ms">Nhà Hàng Tiệc Cưới Như Ý Palace</p>
     <div class="map" data-reveal style="--d:200ms">
       <iframe title="Bản đồ Như Ý Palace" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
         src="https://www.google.com/maps?q=10.8602885,106.958646&output=embed"></iframe>
     </div>
     <a class="pill-btn rose" data-reveal target="_blank" rel="noopener noreferrer"
        href="https://www.google.com/maps/dir/?api=1&destination=10.8602885,106.958646">Chỉ đường</a>
-  </section>
-
-  <!-- 7. LỊCH TRÌNH -->
-  <section class="sec timeline">
-    <p class="eyebrow" data-reveal>WEDDING TIMELINE</p>
-    <h2 class="title" data-reveal style="--d:80ms">Lịch trình ngày cưới</h2>
-    <ol class="tl" data-reveal style="--d:140ms">
-      <li><b>10:00</b><i></i><svg class="tic"><use href="#t-guest"/></svg><span>ĐÓN KHÁCH</span></li>
-      <li><b>10:30</b><i></i><svg class="tic"><use href="#t-rings"/></svg><span>LỄ VU QUY</span></li>
-      <li><b>16:00</b><i></i><svg class="tic"><use href="#t-camera"/></svg><span>CHỤP ẢNH LƯU NIỆM</span></li>
-      <li><b>16:30</b><i></i><svg class="tic"><use href="#t-glass"/></svg><span>KHAI TIỆC</span></li>
-    </ol>
-    <div class="photo photo-landscape ph" data-cloudinary="photo" data-reveal style="--d:80ms" role="img" aria-label="Ảnh cưới"></div>
   </section>
 
   <!-- 8. LỊCH + ĐẾM NGƯỢC -->
@@ -216,10 +201,6 @@
     </div>
   </section>
 
-  <footer class="foot">
-    <hr>
-    <p>Vũ Mạnh &amp; Ngọc Ánh · 13.12.2026</p>
-  </footer>
   </div>
 </main>
 
@@ -232,6 +213,20 @@
       <button class="x" type="button" data-close aria-label="Đóng"><svg class="ic"><use href="#i-close"/></svg></button>
     </header>
     <div class="sheet-body" id="contactBody"></div>
+  </div>
+</div>
+
+<!-- ============ POPUP ẢNH MỪNG CƯỚI ============ -->
+<div class="modal" id="accountModal" aria-hidden="true">
+  <div class="backdrop" data-close></div>
+  <div class="sheet account-sheet" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <header class="sheet-head">
+      <h2 id="accountTitle">Mừng cưới</h2>
+      <button class="x" type="button" data-close aria-label="Đóng"><svg class="ic"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="sheet-body account-sheet-body">
+      <img src="https://res.cloudinary.com/dvtmcabmj/image/upload/v1794679983/lhnldwoixjsedudiuum3.png" alt="Ảnh mừng cưới" class="account-modal-image">
+    </div>
   </div>
 </div>
 
@@ -254,12 +249,14 @@
 
         <div class="field">
           <label for="fName">Họ tên</label>
-          <div class="row">
-            <input id="fName" name="name" type="text" placeholder="Nhập họ tên" autocomplete="name" maxlength="60" required>
-            <div class="side" role="radiogroup" aria-label="Khách của">
-              <label><input type="radio" name="side" value="groom"><i class="dot"></i>Nhà trai</label>
-              <label><input type="radio" name="side" value="bride" checked><i class="dot"></i>Nhà gái</label>
-            </div>
+          <input id="fName" name="name" type="text" placeholder="Nhập họ tên" autocomplete="name" maxlength="60" required>
+        </div>
+
+        <div class="field">
+          <label>Khách mời</label>
+          <div class="choice" role="radiogroup" aria-label="Khách mời">
+            <label class="opt"><input type="radio" name="side" value="groom"><span><svg class="ic"><use href="#i-seat"/></svg>Nhà trai<i class="dot"></i></span></label>
+            <label class="opt"><input type="radio" name="side" value="bride" checked><span><svg class="ic"><use href="#i-seat"/></svg>Nhà gái<i class="dot"></i></span></label>
           </div>
         </div>
 

@@ -44,39 +44,17 @@ function initDates() {
   tick(); setInterval(tick, 1000);
 }
 
-/* ---------- 4. Mừng cưới (accordion + sao chép số tài khoản) ---------- */
+/* ---------- 4. Mừng cưới ---------- */
 function initAccount() {
   const box = $('#accList');
-  box.innerHTML = CONFIG.bank.map((b, i) => `
-    <div class="acc${i === 0 ? ' open' : ''}">
-      <button class="acc-head" type="button" aria-expanded="${i === 0}">${esc(b.side)}<svg class="ic"><use href="#i-chev"/></svg></button>
-      <div class="acc-body"><div>
-        <div class="acc-info">
-          <div>
-            <b><svg class="ic"><use href="#i-card"/></svg>${esc(b.holder)}</b>
-            <span>${esc(b.bank)} ${esc(b.number)}</span>
-          </div>
-          <button class="copy" type="button" data-copy="${esc(b.number)}" aria-label="Sao chép số tài khoản"><svg class="ic"><use href="#i-copy"/></svg></button>
-        </div>
-      </div></div>
-    </div>`).join('');
+  box.innerHTML = `
+    <button type="button" class="account-trigger" id="openAccountModal" aria-label="Xem ảnh mừng cưới">
+      <span>Mừng cưới</span>
+    </button>
+  `;
 
-  box.addEventListener('click', async e => {
-    const head = e.target.closest('.acc-head');
-    if (head) {
-      const acc = head.parentElement, open = !acc.classList.contains('open');
-      $$('.acc', box).forEach(a => { a.classList.remove('open'); $('.acc-head', a).setAttribute('aria-expanded', 'false'); });
-      if (open) { acc.classList.add('open'); head.setAttribute('aria-expanded', 'true'); }
-      return;
-    }
-    const cp = e.target.closest('.copy');
-    if (cp) {
-      const text = cp.dataset.copy;
-      try { await navigator.clipboard.writeText(text); }
-      catch { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
-      toast('Đã sao chép số tài khoản');
-    }
-  });
+  const trigger = $('#openAccountModal');
+  if (trigger) trigger.addEventListener('click', () => openModal('#accountModal'));
 }
 
 /* ---------- 6. Popup liên hệ ---------- */

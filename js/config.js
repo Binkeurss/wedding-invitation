@@ -9,15 +9,9 @@ const CONFIG = {
   ],
   // TODO: thay bằng số điện thoại thật
   contacts: [
-    { group: 'Nhà trai', people: [
-      { role: 'Chú rể', name: 'Vũ Mạnh',          phone: '0900 000 001' },
-      { role: 'Cha',    name: 'Lâm Văn Đượm',     phone: '0900 000 002' },
-      { role: 'Mẹ',     name: 'Huỳnh Thị Phượng', phone: '0900 000 003' }
-    ]},
-    { group: 'Nhà gái', people: [
-      { role: 'Cô dâu', name: 'Ngọc Ánh',     phone: '0900 000 004' },
-      { role: 'Cha',    name: 'Vũ Bảo Duật',  phone: '0900 000 005' },
-      { role: 'Mẹ',     name: 'Phạm Thị Tin', phone: '0900 000 006' }
+    { group: 'Cô dâu & Chú rể', people: [
+      { role: 'Chú rể', name: 'Lâm Mạnh Vũ', phone: '0900 000 001' },
+      { role: 'Cô dâu', name: 'Vũ Ngọc Ánh', phone: '0900 000 004' }
     ]}
   ],
   // TODO: thay bằng tài khoản thật
