@@ -9,7 +9,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Abril+Fatface&family=Playball&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -35,10 +35,18 @@
 
 <main class="card" id="top">
 
-  <!-- 1. HERO (ảnh đã có sẵn chữ "Our Love Begins") -->
-  <header class="hero">
-    <div class="ph hero-img" data-cloudinary="hero" role="img" aria-label="Ảnh cưới Vũ Mạnh và Ngọc Ánh"></div>
-  </header>
+  <!-- 1. HERO: ảnh nền đứng yên (sticky), chữ + nội dung cuộn đè lên -->
+  <div class="hero-bg ph" data-cloudinary="hero" role="img" aria-label="Ảnh cưới Vũ Mạnh và Ngọc Ánh"></div>
+  <section class="hero-text">
+    <h1 class="ob" aria-label="Our Love Begins, from now on">
+      <span class="our" aria-hidden="true">Our</span>
+      <span class="love" aria-hidden="true">Love</span>
+      <span class="begins" aria-hidden="true">Begins</span>
+      <span class="fnw" aria-hidden="true"><i>FROM</i><i>NOW</i><i>ON</i></span>
+    </h1>
+  </section>
+
+  <div class="content">
 
   <!-- 2. SAVE THE DATE -->
   <section class="sec save">
@@ -76,10 +84,10 @@
     <p class="announce" data-reveal>TRÂN TRỌNG BÁO TIN<br>LỄ THÀNH HÔN CỦA CON CHÚNG TÔI</p>
 
     <div class="couple-names">
-      <p class="cn" data-reveal>Lâm Vũ Mạnh</p>
+      <p class="cn" data-reveal>Vũ Mạnh</p>
       <p class="role" data-reveal style="--d:60ms">CHÚ RỂ</p>
       <p class="amp" data-reveal style="--d:100ms">&amp;</p>
-      <p class="cn" data-reveal style="--d:140ms">Vũ Ngọc Ánh</p>
+      <p class="cn" data-reveal style="--d:140ms">Ngọc Ánh</p>
       <p class="role" data-reveal style="--d:200ms">CÔ DÂU</p>
     </div>
   </section>
@@ -93,7 +101,7 @@
       <div class="ph pf-img" data-cloudinary="story2" role="img" aria-label="Chú rể"></div>
       <div class="pf-text">
         <small>Chú rể</small>
-        <h3 style="color:#a86d6c;">Lâm Vũ Mạnh</h3>
+        <h3>Vũ Mạnh</h3>
         <hr>
         <p>Người con trai trầm lặng nhưng luôn chu đáo với những người mình yêu thương. Với anh, hạnh phúc giản dị là được về nhà bên người mình thương.</p>
       </div>
@@ -102,7 +110,7 @@
     <article class="person right" data-reveal>
       <div class="pf-text">
         <small>Cô dâu</small>
-        <h3 style="color:#a86d6c;">Vũ Ngọc Ánh</h3>
+        <h3>Ngọc Ánh</h3>
         <hr>
         <p>Cô gái yêu thích những điều giản dị và đẹp. Với cô, hạnh phúc là được cùng người mình thương viết tiếp những ngày bình thường thật đáng nhớ.</p>
       </div>
@@ -146,8 +154,10 @@
     <p class="eyebrow" data-reveal>WEDDING TIMELINE</p>
     <h2 class="title" data-reveal style="--d:80ms">Lịch trình ngày cưới</h2>
     <ol class="tl" data-reveal style="--d:140ms">
-      <li><b>10:00</b><i></i><svg class="tic"><use href="#t-guest"/></svg><span>ĐÓN KHÁNH</span></li>
-      <li><b>11:30</b><i></i><svg class="tic"><use href="#t-glass"/></svg><span>ĐÃI TIỆC</span></li>
+      <li><b>10:00</b><i></i><svg class="tic"><use href="#t-guest"/></svg><span>ĐÓN KHÁCH</span></li>
+      <li><b>10:30</b><i></i><svg class="tic"><use href="#t-rings"/></svg><span>LỄ VU QUY</span></li>
+      <li><b>16:00</b><i></i><svg class="tic"><use href="#t-camera"/></svg><span>CHỤP ẢNH LƯU NIỆM</span></li>
+      <li><b>16:30</b><i></i><svg class="tic"><use href="#t-glass"/></svg><span>KHAI TIỆC</span></li>
     </ol>
     <div class="photo photo-landscape ph" data-cloudinary="photo" data-reveal style="--d:80ms" role="img" aria-label="Ảnh cưới"></div>
   </section>
@@ -202,14 +212,15 @@
     <div class="thanks-text" data-reveal>
       <p>Cảm ơn bạn đã ghé thăm tấm thiệp nhỏ này.</p>
       <p>Sự hiện diện và lời chúc của bạn<br>là món quà ý nghĩa nhất với chúng mình.</p>
-      <p class="sig">With love,<br>Lâm Vũ Mạnh &amp; Vũ Ngọc Ánh</p>
+      <p class="sig">With love,<br>Vũ Mạnh &amp; Ngọc Ánh</p>
     </div>
   </section>
 
   <footer class="foot">
     <hr>
-    <p>Lâm Vũ Mạnh &amp; Vũ Ngọc Ánh · 13.12.2026</p>
+    <p>Vũ Mạnh &amp; Ngọc Ánh · 13.12.2026</p>
   </footer>
+  </div>
 </main>
 
 <!-- ============ POPUP LIÊN HỆ ============ -->

@@ -10,4 +10,19 @@ function initReveal() {
 }
 
 
+/* Ảnh hero đứng yên; phóng nhẹ khi cuộn cho có chiều sâu */
+function initHeroParallax() {
+  const bg = $('.hero-bg');
+  if (!bg || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let ticking = false;
+  const upd = () => {
+    const p = Math.min(1, scrollY / innerHeight);
+    bg.style.transform = `scale(${(1 + p * 0.08).toFixed(4)})`;
+    ticking = false;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+  upd();
+}
+
 initReveal();
+initHeroParallax();
