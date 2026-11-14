@@ -46,7 +46,7 @@ a{color:inherit}
 .js .pill-btn[data-reveal].in{transition:opacity .9s var(--ease),transform .9s var(--ease),box-shadow .25s}
 
 /* ============ 1. HERO (ảnh đứng yên, chữ và nội dung đi lên đè lên ảnh) ============ */
-.hero-bg{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;z-index:0;transform-origin:50% 40%;will-change:transform}
+.hero-bg{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;z-index:0;transform-origin:50% 40%;will-change:transform;background-position:48% 36%;}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0) 45%,rgba(0,0,0,.38) 100%);pointer-events:none}
 .hero-text{position:relative;z-index:1;height:82vh;height:82svh;min-height:420px;display:flex;align-items:flex-end;padding:0 6% 7%}
 .ob{--w:min(100vw,480px);font-weight:400;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.25);width:100%;position:relative}

@@ -1,5 +1,5 @@
 module.exports = {
-  hero: { id: 'vwbrncmunvzbsbuzcgzj', ext: 'jpg', t: 'c_limit,w_1400,q_auto' },
+  hero: { id: 'ql0pqcvhpfmfwsblb6m2', ext: 'png', t: 'c_limit,w_1400,q_auto' },
   story1: { id: 'dqsulpi3i5jupkajhmra', ext: 'jpg', t: '' },
   story2: { id: 'izyqjleqoaskqnhvw2bp', ext: 'jpg', t: '' },
   story3: { id: 'zxuiqotv2qmss3dagpal', ext: 'jpg', t: '' },
