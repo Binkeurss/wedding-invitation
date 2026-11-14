@@ -13,18 +13,9 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{background:var(--page);color:var(--ink);font:400 15px/1.7 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body.lock, body.cover-locked{overflow:hidden}
+body.lock{overflow:hidden}
 button{font:inherit;color:inherit;cursor:pointer}
 a{color:inherit}
-.cover{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at top,#f3e7dc 0%,#f8efe9 30%,#efe8e2 100%);display:grid;place-items:center;transition:opacity .6s ease, visibility .6s ease, transform .6s ease;}
-.cover.is-hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-10px)}
-.cover-card{width:min(88vw,420px);padding:32px 26px 26px;border:1px solid rgba(125,15,20,.12);background:rgba(255,255,255,.68);backdrop-filter:blur(6px);box-shadow:0 20px 50px rgba(78,53,41,.12);text-align:center;border-radius:22px}
-.cover-badge{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
-.cover-names{font:400 34px/1.2 var(--f-serif);color:var(--crimson);display:flex;align-items:center;justify-content:center;gap:10px}
-.cover-names span{font-size:30px;color:#a67b7b}
-.cover-date{margin-top:18px;font-size:14px;letter-spacing:.18em;color:#726d6d;text-transform:uppercase}
-.cover-open{margin-top:28px;height:46px;padding:0 28px;border:0;border-radius:999px;background:var(--crimson);color:#fff;font-weight:500;box-shadow:0 12px 24px rgba(125,15,20,.22);transition:transform .2s ease, box-shadow .2s ease}
-.cover-open:hover{transform:translateY(-1px);box-shadow:0 18px 28px rgba(125,15,20,.28)}
 .card{max-width:480px;margin:0 auto;background:var(--bg);overflow:hidden;min-height:100vh}
 @media(min-width:520px){body{padding:24px 0}.card{box-shadow:0 12px 44px rgba(0,0,0,.1);border-radius:4px;min-height:0}}
 
@@ -74,7 +65,216 @@ a{color:inherit}
 .families b{display:block;font:600 14px/2 var(--f-sans);color:#222}
 .announce{margin-top:56px;font-size:13px;line-height:2;letter-spacing:.14em;color:#555}
 .couple-names{margin-top:34px}
-.cn{font:400 34px/1.3 var(--f-serif);color:var(--crimson);letter-spacing:.02em}
+.cn{font:400 34px/1.3 var(--f-serif);color:#a86d6c;letter-spacing:.02em}
+.role{font-size:11.5px;letter-spacing:.2em;color:var(--muted);margin-top:2px}
+.amp{font:400 24px/1 var(--f-serif);color:#9a9a9a;margin:14px 0}
+.couple-names .cn+.role+.amp+.cn{margin-top:0}
+
+/* ============ 4. PROFILE ============ */
+.profile{padding-bottom:0}
+.person{display:flex;gap:18px;align-items:flex-start;margin-top:40px;text-align:right}
+.person.left{text-align:right}
+.person.right{text-align:right}
+.pf-img{width:38%;aspect-ratio:3/4;border-radius:4px;flex:none}
+.pf-text{flex:1;min-width:0}
+.pf-text small{display:block;font-size:12.5px;letter-spacing:.1em;color:#666}
+.pf-text h3{font:500 23px/1.3 var(--f-sans);letter-spacing:.02em;color:#111;margin-top:2px}
+.pf-text hr{border:0;height:1px;background:var(--line);margin:12px 0}
+.pf-text p{font-size:13.5px;line-height:1.85;color:#666}
+
+/* ============ 5. KÍNH MỜI ============ */
+.times{list-style:none;margin-top:30px}
+.times li{font:500 17px/1.8 var(--f-sans);color:#111}
+.times li span{display:block;font-size:11.5px;font-weight:400;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;line-height:1.2;margin-bottom:2px}
+.times li+li{margin-top:12px}
+.bigdate{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:26px}
+.bigdate span{font-size:13px;letter-spacing:.2em;color:#555;flex:1}
+.bigdate span:first-child{text-align:right}
+.bigdate span:last-child{text-align:left}
+.bigdate strong{font:400 78px/1 var(--f-num);color:#111;padding:0 22px;border-left:1px solid var(--rose-soft);border-right:1px solid var(--rose-soft)}
+.year{margin-top:14px;font-size:14px;letter-spacing:.14em;color:#999}
+.lunar{margin-top:30px;font:italic 400 13px/1.6 var(--f-serif);color:#999}
+
+/* ============ 6. ĐỊA ĐIỂM ============ */
+.venue{margin-top:30px;font:500 15px/1.6 var(--f-sans);color:#444;letter-spacing:.06em}
+.addr{font-size:13.5px;color:#666}
+.map{margin-top:26px;border-radius:12px;overflow:hidden;background:#eef0ec;aspect-ratio:16/10}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.location .pill-btn{margin-top:26px}
+
+/* ============ 7. LỊCH TRÌNH ============ */
+.tl{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;position:relative}
+.tl::before{content:"";position:absolute;left:0;right:0;top:25px;height:1px;background:#ccc}
+.tl li{position:relative;display:flex;flex-direction:column;align-items:center;padding:0 2px}
+.tl b{font:700 12px/1 var(--f-serif);color:#111;letter-spacing:.02em;background:#fff;padding:0 4px;position:relative;z-index:1}
+.tl i{display:block;width:1px;height:12px;background:#aaa;margin-top:7px;position:relative;z-index:1}
+.tic{width:44px;height:44px;margin-top:16px;fill:none;stroke:#333;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tl span{margin-top:10px;font:400 10px/1.5 var(--f-serif);letter-spacing:.08em;color:#555;text-align:center}
+
+/* ============ 8. LỊCH + ĐẾM NGƯỢC ============ */
+.calendar{padding-top:64px}
+.cal-date{font:400 22px/1.3 var(--f-sans);letter-spacing:.06em;color:#222}
+.cal-time{font-size:14px;color:#666;margin-top:4px}
+.cal{margin:26px auto 0;max-width:340px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:6px;justify-items:center}
+.cal-grid .h{font-size:13.5px;font-weight:500;height:36px;display:flex;align-items:center;color:#222}
+.cal-grid .d{width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#666;border-radius:50%}
+.cal-grid .sun{color:var(--crimson)}
+.cal-grid .on{background:var(--crimson);color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(125,15,20,.3);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 4px 18px rgba(125,15,20,.5)}}
+.cd{display:flex;justify-content:center;align-items:flex-end;gap:10px;margin-top:24px}
+.cd div{display:flex;flex-direction:column;align-items:center;min-width:46px}
+.cd small{font:400 11.5px/1.4 var(--f-serif);color:#999}
+.cd b{font:400 30px/1.1 var(--f-num);color:#444;font-variant-numeric:tabular-nums}
+.cd em{font-style:normal;color:#bbb;padding-bottom:6px}
+.cd-note{margin-top:20px;font-size:13.5px;color:#555}
+
+/* ============ 9. GALLERY ============ */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:34px}
+.g{aspect-ratio:3/4;border-radius:6px}
+.g:nth-child(2),.g:nth-child(3){aspect-ratio:3/3.7}
+
+/* ============ 10. MỪNG CƯỚI ============ */
+.acc-list{max-width:330px;margin:34px auto 0;text-align:left}
+.acc+.acc{margin-top:10px}
+.acc-head{width:100%;display:flex;align-items:center;justify-content:center;position:relative;height:50px;border:0;border-radius:12px;background:#f2f2f2;font-size:15px}
+.acc-head .ic{position:absolute;right:16px;width:20px;height:20px;transition:transform .35s var(--ease);transform:rotate(180deg)}
+.acc.open .acc-head .ic{transform:none}
+.acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.acc.open .acc-body{grid-template-rows:1fr}
+.acc-body>div{overflow:hidden}
+.acc-info{padding:16px 6px 8px;font-size:14.5px;line-height:1.9;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.acc-info b{display:flex;align-items:center;gap:8px;font-weight:500;color:#222}
+.acc-info span{color:#666}
+.copy{border:1px solid var(--line);background:#fff;border-radius:999px;width:38px;height:38px;display:grid;place-items:center;flex:none}
+.copy:hover{background:#faf6f6}
+
+/* ============ 11. RSVP ============ */
+.rsvp{padding-bottom:84px}
+
+/* ============ 12. CẢM ƠN ============ */
+.thanks{position:relative;margin:0;aspect-ratio:4/3.9}
+.thanks-img{position:absolute;inset:0;border-radius:0}
+.thanks::before,.thanks::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
+.thanks::before{top:0;height:30%;background:linear-gradient(#fff,rgba(255,255,255,0))}
+.thanks::after{bottom:0;height:22%;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.thanks-text{position:absolute;left:0;right:0;top:20%;z-index:2;padding:0 24px;text-align:center;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55);font:500 13.5px/1.9 var(--f-sans);letter-spacing:.06em}
+.thanks-text p+p{margin-top:20px}
+.thanks-text .sig{margin-top:22px}
+.foot{padding:0 28px 40px;text-align:center}
+.foot hr{border:0;height:1px;background:var(--rose-soft);margin-bottom:22px}
+.foot p{font-size:12px;color:#aaa;letter-spacing:.08em}
+
+/* ============ POPUP (bottom sheet) ============ */
+.modal{position:fixed;inset:0;z-index:100;visibility:hidden;pointer-events:none;transition:visibility 0s .4s}
+.modal.open{visibility:visible;pointer-events:auto;transition:none}
+.backdrop{position:absolute;inset:0;background:rgba(20,16,16,.45);backdrop-filter:blur(3px);opacity:0;transition:opacity .4s ease}
+.modal.open .backdrop{opacity:1}
+.sheet{position:absolute;left:50%;bottom:0;width:min(100%,480px);max-height:92dvh;display:flex;flex-direction:column;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.18);transform:translate(-50%,100%);transition:transform .5s var(--ease)}
+.modal.open .sheet{transform:translate(-50%,0)}
+@media(min-width:520px){.sheet{bottom:50%;border-radius:20px;max-height:86dvh;transform:translate(-50%,calc(50% + 100vh))}.modal.open .sheet{transform:translate(-50%,50%)}}
+.sheet-head{display:flex;align-items:center;justify-content:center;position:relative;padding:20px 56px 14px}
+.sheet-head::before{content:"";position:absolute;top:8px;left:50%;width:38px;height:4px;border-radius:2px;background:#ddd;transform:translateX(-50%)}
+.sheet-head h2{font:500 18px/1.4 var(--f-sans)}
+.x{position:absolute;right:14px;top:16px;width:36px;height:36px;border:0;background:none;border-radius:50%;display:grid;place-items:center}
+.x:hover{background:#f3f3f3}
+.sheet-body{overflow-y:auto;padding:4px 22px 28px;overscroll-behavior:contain;padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+
+/* Liên hệ */
+.ct-group h3{font:500 14.5px/1.4 var(--f-sans);padding:16px 0 10px;border-bottom:1px solid var(--line)}
+.ct{display:flex;align-items:center;gap:14px;padding:14px 0}
+.ct .r{width:46px;font-size:12.5px;color:#999}
+.ct .n{flex:1;min-width:0}
+.ct .n b{display:block;font:500 15px/1.4 var(--f-sans);color:#111}
+.ct .n span{font-size:13px;color:#777;letter-spacing:.02em}
+.ct .btns{display:flex;gap:8px}
+.ct a{width:54px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#666;transition:background .2s}
+.ct a:hover{background:#faf6f6}
+
+/* Form RSVP */
+.hint{font-size:13.5px;color:#888;text-align:center;line-height:1.7;margin:2px 0 18px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt input,.side input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:flex;align-items:center;gap:8px;min-height:52px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;font-size:14.5px;position:relative;transition:border-color .2s,background .2s;cursor:pointer}
+.opt span .dot{margin-left:auto}
+.dot{width:20px;height:20px;border-radius:50%;border:1px solid #bbb;display:inline-block;flex:none;position:relative;transition:all .2s;margin-right:0}
+.opt input:checked+span{border-color:var(--crimson);background:#fcf6f6}
+.opt input:checked+span .dot,.side input:checked+.dot{background:var(--crimson);border-color:var(--crimson)}
+.opt input:checked+span .dot::after,.side input:checked+.dot::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:translate(-50%,-62%) rotate(45deg)}
+.opt input:focus-visible+span,.side input:focus-visible+.dot{outline:2px solid var(--crimson);outline-offset:2px}
+.field{margin-top:22px}
+.field label[for]{display:block;font-size:12.5px;font-weight:500;color:#333;margin-bottom:4px}
+.field input[type=text],.field input[type=tel],.field textarea{width:100%;border:0;border-bottom:1px solid #ccc;border-radius:0;background:none;padding:10px 0;font:400 15px/1.5 var(--f-sans);color:#111;outline:none;transition:border-color .2s}
+.field textarea{resize:none;min-height:84px}
+.field input:focus,.field textarea:focus{border-bottom-color:var(--crimson)}
+.field ::placeholder{color:#c2c2c2}
+.field .row{display:flex;align-items:flex-end;gap:12px}
+.field .row input{flex:1;min-width:0}
+.side{display:flex;gap:12px;padding-bottom:8px}
+.side label{display:flex;align-items:center;gap:6px;font-size:13.5px;white-space:nowrap;cursor:pointer;position:relative}
+.side .dot{width:16px;height:16px}
+.side input:checked+.dot::after{width:4px;height:8px;border-width:0 1.6px 1.6px 0}
+.submit{width:100%;height:50px;margin-top:30px;border:0;border-radius:10px;background:var(--crimson);color:#fff;font-size:15px;font-weight:500;transition:opacity .25s,transform .2s}
+.submit:disabled{background:#f1f1f1;color:#c4c4c4;cursor:not-allowed}
+.submit:not(:disabled):hover{transform:translateY(-1px)}
+.field.err input{border-bottom-color:#c0392b}
+.done{text-align:center;padding:30px 0 6px}
+.done .big{width:44px;height:44px;color:var(--crimson)}
+.done h3{font:500 20px/1.4 var(--f-sans);margin-top:12px;color:var(--crimson)}
+.done p{margin-top:8px;color:#666;font-size:14.5px;line-height:1.8}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:rgba(30,30,30,.9);color:#fff;font-size:13.5px;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:all .35s var(--ease);z-index:200}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:520px){body{padding:24px 0}.card{box-shadow:0 12px 44px rgba(0,0,0,.1);border-radius:4px;min-height:0}}
+
+.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ============ HIỆU ỨNG HIỆN LÊN TỪ DƯỚI ============ */
+.js [data-reveal]{opacity:0;transform:translate3d(0,44px,0);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms);will-change:opacity,transform}
+.js [data-reveal].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js [data-reveal]{opacity:1;transform:none;transition:none}}
+
+/* ============ ẢNH CLOUDINARY ============ */
+.ph{background:linear-gradient(160deg,#ebe8e6,#f6efe9);background-size:cover;background-position:center;background-repeat:no-repeat;position:relative}
+.ph.loaded{animation:imgIn .9s ease both}
+@keyframes imgIn{from{opacity:.0}to{opacity:1}}
+
+/* ============ KIỂU CHỮ CHUNG ============ */
+.sec{padding:84px 24px 0;text-align:center}
+.eyebrow{font:400 13px/1 var(--f-serif);letter-spacing:.18em;color:var(--rose);text-transform:uppercase}
+.title{font:400 22px/1.4 var(--f-sans);color:var(--crimson);margin-top:14px}
+.caps{text-transform:uppercase;letter-spacing:.04em}
+.lead{margin-top:26px;font-size:14.5px;line-height:1.9;color:#444}
+.sub{margin-top:30px;font-size:13.5px;letter-spacing:.14em;color:#555}
+
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:150px;height:44px;padding:0 26px;margin-top:34px;border:1px solid var(--line);border-radius:999px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04);font-size:14.5px;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+.pill-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.pill-btn:focus-visible,.x:focus-visible,.acc-head:focus-visible,.submit:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+.pill-btn.rose{background:var(--rose-soft);border-color:var(--rose);color:var(--crimson);font-family:var(--f-serif);font-size:14px;height:40px;min-width:0;padding:0 28px}
+.js .pill-btn[data-reveal].in{transition:opacity .9s var(--ease),transform .9s var(--ease),box-shadow .25s}
+
+/* ============ 1. HERO ============ */
+.hero{position:relative}
+.hero-img{width:100%;aspect-ratio:377/532;animation:heroIn 1.4s var(--ease) both}
+@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-img{animation:none}}
+
+/* ============ 2. SAVE THE DATE ============ */
+.save{padding-top:56px}
+.photo{width:100%;margin-top:44px;border-radius:2px}
+.photo-portrait{aspect-ratio:386/540}
+.photo-landscape{aspect-ratio:4/3;margin-top:56px}
+.save .pill-btn{margin-top:48px}
+
+/* ============ 3. THÔNG TIN ============ */
+.families{display:grid;grid-template-columns:1fr 1fr;margin-top:42px;position:relative}
+.families::before{content:"";position:absolute;left:50%;top:4px;bottom:4px;width:1px;background:var(--rose-soft)}
+.families h3{font:400 13px/1.4 var(--f-sans);color:var(--muted);letter-spacing:.06em;margin-bottom:10px}
+.families b{display:block;font:600 14px/2 var(--f-sans);color:#222}
+.announce{margin-top:56px;font-size:13px;line-height:2;letter-spacing:.14em;color:#555}
+.couple-names{margin-top:34px}
+.cn{font:400 34px/1.3 var(--f-serif);color:#a86d6c;letter-spacing:.02em}
 .role{font-size:11.5px;letter-spacing:.2em;color:var(--muted);margin-top:2px}
 .amp{font:400 24px/1 var(--f-serif);color:#9a9a9a;margin:14px 0}
 .couple-names .cn+.role+.amp+.cn{margin-top:0}

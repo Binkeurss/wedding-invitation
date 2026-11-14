@@ -1,11 +1,11 @@
 const TZ = 'Asia/Ho_Chi_Minh';
 const CONFIG = {
-  groom: 'Vũ Mạnh',
-  bride: 'Ngọc Ánh',
+  groom: 'Lâm Vũ Mạnh',
+  bride: 'Vũ Ngọc Ánh',
   // buổi lễ: dòng đầu tiên là mốc đếm ngược & lịch
   ceremonies: [
-    { label: 'Lễ Vu Quy',      iso: '2026-12-13T10:30:00+07:00' },
-    { label: 'Tiệc mừng cưới', iso: '2026-12-13T16:30:00+07:00' }
+    { label: 'Đón Khánh', iso: '2026-12-13T10:00:00+07:00' },
+    { label: 'Đãi Tiệc',  iso: '2026-12-13T11:30:00+07:00' }
   ],
   // TODO: thay bằng số điện thoại thật
   contacts: [
