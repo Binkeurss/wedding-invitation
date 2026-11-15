@@ -38,7 +38,9 @@
 <main class="card" id="top">
 
   <!-- 1. HERO: ảnh nền đứng yên (sticky), chữ + nội dung cuộn đè lên -->
-  <div class="hero-bg ph" data-cloudinary="hero" role="img" aria-label="Ảnh cưới Vũ Mạnh và Ngọc Ánh"></div>
+  <div class="hero-stage">
+    <div class="hero-bg ph" data-cloudinary="hero" role="img" aria-label="Ảnh cưới Vũ Mạnh và Ngọc Ánh"></div>
+  </div>
   <section class="hero-text">
     <h1 class="ob" aria-label="Our Love Begins, from now on">
       <span class="r1" aria-hidden="true"><span class="our">Our</span><span class="love">Love</span></span>
@@ -191,6 +193,11 @@
     <button class="pill-btn" id="openRsvp" type="button" data-reveal style="--d:160ms">
       <svg class="ic"><use href="#i-seat"/></svg>Gửi xác nhận
     </button>
+
+    <div class="live" id="live" hidden>
+      <p class="live-cap">Đã có <b id="liveCount">0</b> người xác nhận tham dự</p>
+      <div class="live-view" id="liveView" aria-live="off"><div class="live-track" id="liveTrack"></div></div>
+    </div>
   </section>
 
   <!-- 12. CẢM ƠN -->
@@ -201,6 +208,10 @@
       <p>Rất mong cả nhà mình có thể sắp xếp thời gian đến chung vui cùng gia đình và chúng con/em/chị nhé!</p>
       <p class="sig">Trân trọng kính mời đại gia đình!</p>
     </div>
+    <footer class="foot">
+      <hr>
+      <p>Vũ Mạnh &amp; Ngọc Ánh · 13.12.2026</p>
+    </footer>
   </section>
 
   </div>
@@ -242,6 +253,7 @@
     </header>
     <div class="sheet-body">
       <form id="rsvpForm" novalidate>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <p class="hint">Vui lòng xác nhận trước ngày cưới để Vũ Mạnh &amp; Ngọc Ánh chuẩn bị đón tiếp chu đáo nhất.</p>
 
         <div class="choice" role="radiogroup" aria-label="Bạn có tham dự không">
@@ -272,6 +284,7 @@
           <textarea id="fNote" name="note" rows="3" placeholder="Nhập nội dung" maxlength="300"></textarea>
         </div>
 
+        <input type="hidden" name="website" value="">
         <button class="submit" id="rsvpSubmit" type="submit" disabled>Gửi đến cô dâu chú rể</button>
       </form>
 
@@ -292,6 +305,7 @@
 <script src="/js/content.js"></script>
 <script src="/js/secure-images.js"></script>
 <script src="/js/ui.js"></script>
+<script src="/js/rsvp.js"></script>
 <script src="/js/cover.js"></script>
 <script src="/js/engine.js"></script>
 </body>

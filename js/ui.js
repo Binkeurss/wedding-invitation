@@ -35,8 +35,69 @@ function initContact() {
   if (btn) btn.addEventListener('click', () => openModal('#contactModal'));
 }
 function initRsvp() {
-  const btn = $('#openRsvp');
-  if (btn) btn.addEventListener('click', () => openModal('#rsvpModal'));
+  const openBtn = $('#openRsvp');
+  const form = $('#rsvpForm');
+  const btn = $('#rsvpSubmit');
+  const done = $('#rsvpDone');
+  const modal = $('#rsvpModal');
+
+  if (!openBtn || !form || !btn || !done || !modal) return;
+
+  const valid = () => {
+    const attend = form.querySelector('input[name="attend"]:checked');
+    const name = form.elements.name.value.trim();
+    return !!attend && name.length >= 2;
+  };
+
+  const refresh = () => {
+    btn.disabled = !valid();
+  };
+
+  openBtn.addEventListener('click', () => openModal('#rsvpModal'));
+  form.addEventListener('input', refresh);
+  form.addEventListener('change', refresh);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!valid()) return;
+
+    const attend = form.querySelector('input[name="attend"]:checked');
+    const side = form.querySelector('input[name="side"]:checked');
+    const data = {
+      attend: attend.value === 'yes',
+      name: form.elements.name.value.trim(),
+      side: side ? side.value : 'bride',
+      phone: form.elements.phone.value.trim(),
+      note: form.elements.note.value.trim()
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Đang gửi...';
+
+    try {
+      await submitRSVP(data);
+      $('#rsvpDoneMsg').textContent = data.attend
+        ? `${CONFIG.groom} & ${CONFIG.bride} đã nhận được xác nhận của bạn và rất mong được đón bạn.`
+        : `${CONFIG.groom} & ${CONFIG.bride} đã nhận được phản hồi của bạn. Cảm ơn bạn đã dành lời chúc!`;
+      form.hidden = true;
+      done.hidden = false;
+    } catch (err) {
+      toast('Gửi chưa được, vui lòng thử lại');
+      btn.disabled = false;
+    } finally {
+      btn.textContent = 'Gửi đến cô dâu chú rể';
+    }
+  });
+
+  refresh();
+  new MutationObserver(() => {
+    if (modal.classList.contains('open') && done.hidden === false) {
+      form.reset();
+      form.hidden = false;
+      done.hidden = true;
+      refresh();
+    }
+  }).observe(modal, { attributes: true, attributeFilter: ['class'] });
 }
 
 initReveal();
