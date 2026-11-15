@@ -5,7 +5,7 @@ const CONFIG = {
   // buổi lễ: dòng đầu tiên là mốc đếm ngược & lịch
   ceremonies: [
     { label: 'Đón Khách', iso: '2026-12-13T10:30:00+07:00' },
-    { label: 'Đãi Tiệc',  iso: '2026-12-13T11:30:00+07:00' }
+    { label: 'Đãi Tiệc',  iso: '2026-12-13T11:00:00+07:00' }
   ],
   // TODO: thay bằng số điện thoại thật
   contacts: [
