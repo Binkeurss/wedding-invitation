@@ -1,6 +1,6 @@
 module.exports = {
-  hero: { id: 'ttuq1wgl6d1vl9kcfr9n', ext: 'png', t: '' },
-  story1: { id: 'dqsulpi3i5jupkajhmra', ext: 'jpg', t: '' },
+  hero: { id: 'fk8mxonbafg6s9dfhvvb', ext: 'png', t: '' },
+  story1: { id: 'ka19wkoobabyhxqefqrq', ext: 'jpg', t: '' },
   story2: { id: 'izyqjleqoaskqnhvw2bp', ext: 'jpg', t: '' },
   story3: { id: 'zxuiqotv2qmss3dagpal', ext: 'jpg', t: '' },
   album1: { id: 'fy0logxnw3dlzjaqn2y5', ext: 'jpg', t: '' },
