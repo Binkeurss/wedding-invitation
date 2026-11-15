@@ -14,7 +14,7 @@ async function submitRSVP(data) {
 }
 
 /* ---------- Dải thang máy: mỗi lượt hiện 3 người, cả nhóm trượt lên, nhóm 3 người mới vào từ dưới ---------- */
-const LIVE_STEP_MS = 4200;
+const LIVE_STEP_MS = 3000;
 const LIVE_SLIDE_MS = 900;
 let liveItems = [], liveTotal = 0, liveSig = '', liveTimer = null;
 
@@ -71,6 +71,17 @@ function liveBuild() {
   for (let i = 0; i < list.length && (!still || i < 3); i += size) pages.push(list.slice(i, i + size));
   root.classList.toggle('still', still);
   view.style.setProperty('--n', size);
+
+  // Đảm bảo hiển thị đủ số card, bao gồm gap và padding
+  const rowHeight = parseFloat(
+      getComputedStyle(root).getPropertyValue('--row')
+  ) || 58;
+
+  const gap = 10;
+  const padding = 8;
+
+  view.style.height =
+      `${rowHeight * size + Math.max(0, size - 1) * gap + padding * 2}px`;
   const mk = rows => { const p = document.createElement('div'); p.className = 'live-page'; rows.forEach(r => p.appendChild(liveRow(r))); return p; };
   pages.forEach(p => track.appendChild(mk(p)));
 
